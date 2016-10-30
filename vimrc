@@ -5,12 +5,15 @@ set ai                      "自动缩进
 set bs=2                    "在insert模式下用退格键删除
 set showmatch               "代码匹配
 set laststatus=2            "总是显示状态行
-"set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
-"set shiftwidth=4
-"set tabstop=4
+set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
+set shiftwidth=4
+set tabstop=4
 set cursorline              "为光标所在行加下划线
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F2>
 
 set noignorecase              "检索时忽略大小写
 set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1"使用utf-8或gbk打开文件
@@ -31,7 +34,7 @@ nnoremap <leader>t : tabe<CR>
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
 set t_Co=256
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 
 
 " set the runtime path to include Vundle and initialize
