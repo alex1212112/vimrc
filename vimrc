@@ -23,6 +23,7 @@ set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1"使用utf-8或gbk
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
 set foldmethod=syntax       "代码折叠
+set foldlevelstart=99       " 打开文件是默认不折叠代码
 "}}
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
