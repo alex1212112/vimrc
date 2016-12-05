@@ -11,7 +11,6 @@ set tabstop=4
 set cursorline              "为光标所在行加下划线
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
-let javascript_enable_domhtmlcss = 1
 
 
 nnoremap <F2> :set invpaste paste?<CR>
@@ -34,26 +33,37 @@ nnoremap <leader>t : tabe<CR>
 
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
-"powerline{
-set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible
-set t_Co=256
-let g:Powerline_symbols = 'unicode'
+let g:airline_theme="luna" 
 
+"这个是安装字体后 必须设置此项" 
+let g:airline_powerline_fonts = 1   
 
-" set the runtime path to include Vundle and initialize
+"打开tabline功能,方便查看Buffer和切换，这个功能比较不错"
+"我还省去了minibufexpl插件，因为我习惯在1个Tab下用多个buffer"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"设置切换Buffer快捷键"
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
+
+" 关闭状态显示空白符号计数,这个对我用处不大"
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+
+"}}
+"set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+"alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+"let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://github.com/Lokaltog/vim-powerline'
-Plugin 'pangloss/vim-javascript'
+Plugin 'bling/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline-themes'
 
 
 call vundle#end()            " required
-filetype plugin indent on    " required
